@@ -202,7 +202,7 @@ class ImgixService extends Component
         $domains = $this->settings->imgixDomains;
         $volume = $asset->getVolume();
         $assetUrl = AssetsHelper::generateUrl($volume, $asset);
-        $assetUri = parse_url($assetUrl, PHP_URL_PATH);
+        $assetUri = $asset->getPath(); //parse_url($assetUrl, PHP_URL_PATH);
 
         if (isset($domains[ $volume->handle ])) {
             $builder = new UrlBuilder($domains[ $volume->handle ]);
